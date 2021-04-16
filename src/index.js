@@ -7,11 +7,11 @@ function sayHello(){
     }
 }
 
-let fn = sayHello();
+// let fn = sayHello();
 let massage = fn();
-// let fn = sayHello() //variable
-// fn() // sama kaya panggil sayHello()
-// sayHello() //
+let fn = sayHello() //variable
+fn() // sama kaya panggil sayHello()
+sayHello() //
  
 // function great(fnMessage) {
 //     console.log(fnMessage());
@@ -20,8 +20,8 @@ let massage = fn();
 // greet(sayHello) // function bisa di assign ke fuction lain
 
 // TODO: HIGHER-ORDER FUNCTION
-// let numbers = [1, 2, 3]
-// numbers.map(number => number * 2) ini adalah contoh higher order 
+let numbers = [1, 2, 3]
+numbers.map(number => number * 2) // ini adalah contoh higher order 
 
 // TODO: FUNCTIONAL COMPOSITION
 let input = "  JAVA  ";
@@ -30,12 +30,12 @@ const wrapInDiv = str => '<div>${str}</div>'; // template string
 const toLowerCase = str => str.toLowerCase();
 
 const result = wrapInDiv(toLowerCase(trim(input))); // ini disebut fuctional composition programming
-// const transformCompose = compose(wrapInDiv, toLowerCase, trim); // salah satu function dari lodash buat fuction composition
+const transformCompose = compose(wrapInDiv, toLowerCase, trim); // salah satu function dari lodash buat fuction composition
 // const transformPipe = pipe(trim, toLowerCase, wrapInDiv); // salah satu function dari lodash buat fuction composition kebalikan dari compose
-// transformPipe(input);
+transformPipe(input);
 
 // TODO: CURRING
 
-const wrap = (tyope, str) => `<${type}> ${str} </${type}>`;
-const transformPipe = pipe(trim, toLowerCase, wrap);
-console.log(transformPipe(input));
+const wrap = type => str => `<${type}> ${str} </${type}>`;
+const transformPipe = pipe(trim, toLowerCase, wrap("div"));
+// console.log(transformPipe(input));
